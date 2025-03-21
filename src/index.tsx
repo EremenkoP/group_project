@@ -1,15 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./pages/App";
+import reportWebVitals from "./reportWebVitals";
+import "./normalize.scss";
+import { Provider } from "react-redux";
+import { store } from "./services/store/store";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import "dayjs/locale/ru";
+import { ruRU } from "@mui/x-date-pickers/locales";
+import { BrowserRouter } from "react-router";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider store={store}>
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale={"ru"}
+          localeText={
+            ruRU.components.MuiLocalizationProvider.defaultProps.localeText
+          }
+        >
+          <App />
+        </LocalizationProvider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
