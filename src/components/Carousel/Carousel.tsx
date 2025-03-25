@@ -1,9 +1,21 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Carousel.css";
+import styles from "./Carousel.module.css";
 
-export const Carousel = ({ movies }) => {
+interface Movie {
+  id: number;
+  title: string;
+  rating: number;
+  imageUrl: string;
+}
+
+interface CarouselProps {
+  movies: Movie[];
+}
+
+
+export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -15,17 +27,17 @@ export const Carousel = ({ movies }) => {
   };
 
   return (
-    <div className="image-slider">
+    <div className={styles.imageSlider}>
       <Slider {...settings}>
         {movies.map((item) => (
-          <div key={item.id} className="image-slide">
+          <div key={item.id} className={styles.imageSlide}>
             <div>
               <h3>{item.title}</h3>
             </div>
             <div>
               <p>{item.rating}</p>
             </div>
-            <div className="image-slider__img">
+            <div className={styles.imageSliderImg}>
               <img src={item.imageUrl} alt="img" />
             </div>
           </div>
