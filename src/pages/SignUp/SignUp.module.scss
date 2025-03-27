@@ -1,0 +1,29 @@
+@use '../../utils/style/mixin.scss' as *;
+
+.signUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  @include def-border;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.label {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  position: relative;
+  align-items: center;
+
+  &__error{
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+  }
+}
