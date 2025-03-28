@@ -1,12 +1,12 @@
-import { useAppDispatch } from "../../hooks/store";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import style from "./SignIn.module.scss";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { IApiAuth } from "../../services/types";
 import { Button, Input, Typography } from "@mui/material";
-import { useState } from "react";
 import { thunkSignIn } from "../../services/API/thunk";
+import { isAuthError } from "../../services/store/User/UserSelectors";
 
 export const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ export const SignIn = () => {
     password: string().required("Введите пароль"),
   });
 
-  const [error, setError] = useState("");
+  const error = useAppSelector(isAuthError);
 
   const {
     register,
@@ -24,8 +24,8 @@ export const SignIn = () => {
     handleSubmit,
   } = useForm<IApiAuth>({ resolver: yupResolver(dataSchema) });
 
-  const sendData = (data: IApiAuth) => {
-    dispatch(thunkSignIn(data))
+  const sendData = async (data: IApiAuth) => {
+    await dispatch(thunkSignIn(data))
   };
 
   return (
@@ -54,7 +54,11 @@ export const SignIn = () => {
           </Typography>
         </label>{" "}
         <Button type="submit"> Регистрация </Button>
-        {error && <p>{error}</p>}
+        {error && (
+          <Typography variant="caption" color="red">
+            {error.message}
+          </Typography>
+        )}
       </form>
     </section>
   );

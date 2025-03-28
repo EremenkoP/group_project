@@ -1,10 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IApiAuthResponce } from "../../types";
+import { IApiAuthResponce, IAuthError } from "../../types";
 
-interface IInitalState extends IApiAuthResponce {}
+interface IInitalState extends IApiAuthResponce {
+  isAuth: boolean;
+  isError: IAuthError;
+}
 
 const initalState: IInitalState = {
   userName: "",
+  isAuth: false,
+  isError: {
+    code: 0,
+    message: "",
+  },
 };
 
 export const UserSlice = createSlice({
@@ -12,17 +20,35 @@ export const UserSlice = createSlice({
   initialState: initalState,
   reducers: {
     addUser: (state, action: PayloadAction<IApiAuthResponce>) => {
-      state = action.payload;
+      return state = {
+        userName: action.payload.userName,
+        isAuth: true,
+        isError: {
+          code: 0,
+          message: "",
+        },
+      };
     },
     removeUser: (state) => {
-      state = {
+      return state = {
         userName: "",
+        isAuth: false,
+        isError: {
+          code: 0,
+          message: "",
+        },
+      };
+    },
+    errorAuth: (state, action: PayloadAction<IAuthError>) => {
+      return state = {
+        userName: "123123",
+        isAuth: false,
+        isError: {...action.payload},
       };
     },
   },
 });
 
-export const { addUser, removeUser } = UserSlice.actions;
-
+export const { addUser, removeUser, errorAuth } = UserSlice.actions;
 
 export const UserReducer = UserSlice.reducer;

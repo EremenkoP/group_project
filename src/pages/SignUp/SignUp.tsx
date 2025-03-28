@@ -1,39 +1,32 @@
 import { useForm } from "react-hook-form";
 import { IApiRegestry } from "../../services/types";
 import { Button, Input, Typography } from "@mui/material";
-import { useAppDispatch } from "../../hooks/store";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { thunkSignUp } from "../../services/API/thunk";
-import { useState } from "react";
-import style from './SignUp.module.scss'
+import style from "./SignUp.module.scss";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { isAuthError } from "../../services/store/User/UserSelectors";
 
 export const SignUp = () => {
   const dispatch = useAppDispatch();
 
+  const error = useAppSelector(isAuthError);
+
   const dataSchema = object({
     userName: string().required("Введите как к вам обращаться"),
-    email: string().required('Введите почту').email('Требуется валидный email'),
-    password: string().required('Введите пароль')
+    email: string().required("Введите почту").email("Требуется валидный email"),
+    password: string().required("Введите пароль"),
   });
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<IApiRegestry>({ resolver: yupResolver(dataSchema)});
+  } = useForm<IApiRegestry>({ resolver: yupResolver(dataSchema) });
 
-  const [error, setError] = useState("");
-
-  const sendData = (data: IApiRegestry) => {
-    dispatch(thunkSignUp(data));
-    // .catch((err: {status: number}) => {
-    //   if (err.status === 409) {
-    //     setError('Данный email уже используется')
-    //   } else {
-    //     setError(errors.root?.message || 'Неизвестная ошибка')
-    //   }
-    // });
+  const sendData = async (data: IApiRegestry) => {
+    await dispatch(thunkSignUp(data));
   };
 
   return (
@@ -73,9 +66,15 @@ export const SignUp = () => {
           </Typography>
         </label>{" "}
         <Button type="submit"> Регистрация </Button>
-        {error && <p>{error}</p>}
+        {error && (
+          <Typography
+            variant="caption"
+            color="red"
+          >
+            {error.message}
+          </Typography>
+        )}
       </form>
     </section>
   );
 };
-
