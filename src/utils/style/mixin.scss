@@ -1,0 +1,5 @@
+@use './variables.scss' as *;
+
+@mixin def-border {
+  border: 4px solid #4b4a4b;
+}
