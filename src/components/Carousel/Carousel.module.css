@@ -1,0 +1,33 @@
+.imageSlider {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .imageSlide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .slickPrevBefore,
+  .slickNextBefore {
+    color: black; 
+    font-size: 24px;
+  }
+  
+  .slickDotsLiButtonBefore {
+    font-size: 12px;
+    color: gray; 
+  }
+  
+  .slickDotsLiSlickActiveButtonBefore  {
+    color: black; 
+  }
+
+  :global(.slick-prev:before),
+  :global(.slick-next:before) {
+    color: black;
+    font-size: 24px;
+  }
