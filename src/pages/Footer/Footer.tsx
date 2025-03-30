@@ -13,13 +13,13 @@ const Footer = () => {
           <h3 className="footer__top-side__social__title">Star Wars</h3>
           <p className="footer__top-side__social__p">Where Imagination Meets the Universe</p>
           <div className="footer__top-side__social__icons">
-            <a href="https://www.facebook.com/StarWars" target="_blank">
+            <a href="https://www.facebook.com/StarWars">
               <img src={facebook} alt="Facebook" />
             </a>
-            <a href="https://www.instagram.com/starwars/" target="_blank">
+            <a href="https://www.instagram.com/starwars/">
               <img src={instagram} alt="Instagram" />
             </a>
-            <a href="https://www.youtube.com/user/StarWars" target="_blank">
+            <a href="https://www.youtube.com/user/StarWars">
               <img src={youtube} alt="YouTube" />
             </a>
 
