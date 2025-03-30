@@ -7,9 +7,9 @@ $widthSight: 1140px;
 }
 
 .container {
-  // width: $widthSight;
-  padding-left: calc(50% - 570px);
-  padding-right: calc(50% - 570px);
+  // // width: $widthSight;
+  // padding-left: calc(50% - 570px);
+  // padding-right: calc(50% - 570px);
   margin: 0 auto;
 }
 
@@ -49,7 +49,7 @@ $widthSight: 1140px;
         &:last-child {
           margin-right: 0;
           &:hover {
-            color: #8C1111;
+            color: #115D8C;
             transition: ease-in-out 0.5s;
           }
         }
@@ -68,7 +68,7 @@ $widthSight: 1140px;
       border: 2px solid #ccc;
       padding: 10px;
       border-radius: 10px;
-      height: 30px;
+      height: 40px;
       color: #fff;
       display: flex;
       align-items: center;
@@ -91,7 +91,7 @@ $widthSight: 1140px;
         margin-right: 0;
       }
       &:hover {
-        color: #8C1111;
+        color: #115D8C;
         transition: ease-in-out 0.5s;
       }
     }

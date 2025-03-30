@@ -73,9 +73,13 @@ export const Header = () => {
           />
         </div>
         <div className="header__right-side__links">
-          <Link className="header__right-side__link" to={router.signIn}>signIn</Link>
+          <Link className="header__right-side__link" to={router.signIn}>
+            signIn
+          </Link>
           <div>|</div>
-          <Link className="header__right-side__link" to={router.signUp}>signUp</Link>
+          <Link className="header__right-side__link" to={router.signUp}>
+            signUp
+          </Link>
         </div>
       </div>
     </header>
