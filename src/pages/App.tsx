@@ -4,6 +4,7 @@ import { Main } from "./Main/Main";
 import { router } from "../utils/routes";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
+import Footer from "./Footer/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path={router.signIn} element={<SignIn />} />
         <Route path={router.signUp} element={<SignUp />} />
       </Routes>
+      <Footer />
     </>
   );
 }
