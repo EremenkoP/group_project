@@ -1,0 +1,25 @@
+.form {
+  background-color: transparent;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  color: #fff;
+  background-color: transparent;
+}
+
+.button {
+  width: 24px;
+  background-color: transparent;
+  height: 24px;
+}
+
+.icon * {
+  color: #fff;
+}

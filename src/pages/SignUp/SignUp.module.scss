@@ -1,9 +1,11 @@
 @use '../../utils/style/mixin.scss' as *;
+@use '../../utils/style/variables.scss' as *;
 
 .signUp {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $main-background;
 }
 
 .form {
@@ -21,10 +23,16 @@
   position: relative;
   align-items: center;
   margin: 12px 0;
+  color: white;
 
   &__error{
     position: absolute;
     right: 0;
     bottom: -20px;
   }
+}
+
+.input{
+  background-color: $accient-background;
+  color: white;
 }

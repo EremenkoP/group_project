@@ -1,5 +1,11 @@
 export const router = {
-  main: '/',
-  signUp: '/sign-up',
-  signIn: '/sign-in',
-}
+  main: "/",
+  signUp: "/sign-up",
+  signIn: "/sign-in",
+  people: "/people",
+  films: "/films",
+  starships: "/starships",
+  vehicles: "/vehicles",
+  species: "/species",
+  planets: "/planets",
+};

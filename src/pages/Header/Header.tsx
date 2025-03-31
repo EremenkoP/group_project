@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { router } from "../../utils/routes";
 import logo from "./logo.png";
 import "./Header.scss";
+import { Search } from "../../components";
 
 export const Header = () => {
   return (
@@ -21,42 +22,42 @@ export const Header = () => {
           <ul className="header__menu__list">
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.people} className="header__menu__list__link">
                   People
                 </Link>
               }
             </li>
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.films} className="header__menu__list__link">
                   Films
                 </Link>
               }
             </li>
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.starships} className="header__menu__list__link">
                   Starships
                 </Link>
               }
             </li>
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.vehicles} className="header__menu__list__link">
                   Vehicles
                 </Link>
               }
             </li>
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.species} className="header__menu__list__link">
                   Species
                 </Link>
               }
             </li>
             <li>
               {
-                <Link to={router.main} className="header__menu__list__link">
+                <Link to={router.planets} className="header__menu__list__link">
                   Planets
                 </Link>
               }
@@ -66,11 +67,7 @@ export const Header = () => {
       </div>
       <div className="header__right-side">
         <div className="header__right-side__search">
-          <input
-            className="header__right-side__input"
-            type="text"
-            placeholder="Search..."
-          />
+          <Search />
         </div>
         <div className="header__right-side__links">
           <Link className="header__right-side__link" to={router.signIn}>

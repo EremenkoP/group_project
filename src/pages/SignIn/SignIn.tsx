@@ -25,15 +25,19 @@ export const SignIn = () => {
   } = useForm<IApiAuth>({ resolver: yupResolver(dataSchema) });
 
   const sendData = async (data: IApiAuth) => {
-    await dispatch(thunkSignIn(data))
+    await dispatch(thunkSignIn(data));
   };
 
   return (
     <section className={style.SignIn}>
       <form onSubmit={handleSubmit(sendData)} className={style.form}>
         <label className={style.label}>
-          Ввведите вашу почту &nbsp;
-          <Input {...register("email")} />
+          Email &nbsp;
+          <Input
+            {...register("email")}
+            className={style.input}
+            style={{ color: "white" }}
+          />
           <Typography
             variant="caption"
             color="red"
@@ -43,8 +47,12 @@ export const SignIn = () => {
           </Typography>
         </label>{" "}
         <label className={style.label}>
-          Введите пароль &nbsp;
-          <Input {...register("password")} />
+          Password &nbsp;
+          <Input
+            {...register("password")}
+            className={style.input}
+            style={{ color: "white" }}
+          />
           <Typography
             variant="caption"
             color="red"
@@ -53,7 +61,7 @@ export const SignIn = () => {
             {errors.password?.message}
           </Typography>
         </label>{" "}
-        <Button type="submit"> Регистрация </Button>
+        <Button type="submit"> Enter </Button>
         {error && (
           <Typography variant="caption" color="red">
             {error.message}
