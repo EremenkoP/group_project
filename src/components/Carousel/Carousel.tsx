@@ -3,21 +3,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Carousel.module.css";
 
-interface Movie {
-  id: number;
-  title: string;
-  rating: number;
-  imageUrl: string;
-}
 
 interface CarouselProps {
-  movies: Movie[];
+  carouselData: any[];
 }
 
-
-export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
+export const Carousel: React.FC<CarouselProps> = ({ carouselData }) => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
@@ -29,20 +22,19 @@ export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
   return (
     <div className={styles.imageSlider}>
       <Slider {...settings}>
-        {movies.map((item) => (
-          <div key={item.id} className={styles.imageSlide}>
-            <div>
-              <h3>{item.title}</h3>
-            </div>
-            <div>
-              <p>{item.rating}</p>
-            </div>
-            <div className={styles.imageSliderImg}>
-              <img src={item.imageUrl} alt="img" />
-            </div>
+        {carouselData.map((item: any, index: number) => (
+          <div key={index}>
+            <h3>{item.category}: {item.name || item.title}</h3>
+            {item.category === 'Film' && <p>Episode: {item.episode_id}</p>}
+            {item.category === 'Person' && <p>Height: {item.height}</p>}
+            {item.category === 'Planet' && <p>Diameter: {item.diameter}</p>}
+            {item.category === 'Species' && <p>Classification: {item.classification}</p>}
+            {item.category === 'Starship' && <p>Model: {item.model}</p>}
+            {item.category === 'Vehicle' && <p>Model: {item.model}</p>}
           </div>
         ))}
       </Slider>
     </div>
   );
 };
+

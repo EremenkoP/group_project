@@ -1,5 +1,5 @@
 .imageSlider {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     position: relative;
   }
@@ -8,7 +8,6 @@
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-right: 10px;
   }
   
   .slickPrevBefore,
