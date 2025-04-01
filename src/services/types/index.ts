@@ -1,4 +1,4 @@
-import { IApiAuthResponce, IApiAuth, IApiRegestry, IFilms, IPeople, IPlanet, ISpecies, IStarships, IVehicles } from "./API";
+import { IApiAuthResponce, IApiAuth, IApiRegestry, IFilms, IPeople, IPlanet, ISpecies, IStarships, IVehicles, AnswerBySearch } from "./API";
 import { IAuthError } from "./ui";
 
 export type {
@@ -12,4 +12,5 @@ export type {
   IVehicles,
   ISpecies,
   IPlanet,
+  AnswerBySearch,
 };

@@ -1,4 +1,14 @@
-import { IApiAuth, IApiRegestry, IFilms, IPeople, IPlanet, ISpecies, IStarships, IVehicles } from "../types";
+import {
+  IApiAuth,
+  IApiRegestry,
+  IFilms,
+  IPeople,
+  IPlanet,
+  ISpecies,
+  IStarships,
+  IVehicles,
+  AnswerBySearch,
+} from "../types";
 import { login, regestry } from "./fakeAuth";
 
 interface ImainApi {
@@ -34,38 +44,38 @@ class mainApi {
 
   login = (body: IApiAuth) => login(body);
 
-  getAllPeoples = (query?: string): Promise<Array<IPeople>> =>
-    this._fetcher("/people" + (query ? `/search=${query}` : ""), "GET");
+  getAllPeoples = (query?: string): Promise<AnswerBySearch<IPeople>> =>
+    this._fetcher("/people" + (query ? `/?search=${query}` : ""), "GET");
 
   getPeople = (id: string): Promise<IPeople> =>
     this._fetcher(`/people/${id}`, "GET");
 
-  getAllFilms = (query?: string): Promise<Array<IFilms>> =>
-    this._fetcher("/films" + (query ? `/search=${query}` : ""), "GET");
+  getAllFilms = (query?: string): Promise<AnswerBySearch<IFilms>> =>
+    this._fetcher("/films" + (query ? `/?search=${query}` : ""), "GET");
 
   getFilm = (id: string): Promise<IFilms> =>
     this._fetcher(`/films/${id}`, "GET");
 
-  getAllStarships = (query?: string): Promise<Array<IStarships>> =>
-    this._fetcher("/starships" + (query ? `/search=${query}` : ""), "GET");
+  getAllStarships = (query?: string): Promise<AnswerBySearch<IStarships>> =>
+    this._fetcher("/starships" + (query ? `/?search=${query}` : ""), "GET");
 
   getStarship = (id: string): Promise<IStarships> =>
     this._fetcher(`/starships/${id}`, "GET");
 
-  getAllVehicles = (query?: string): Promise<Array<IVehicles>> =>
-    this._fetcher("/vehicles" + (query ? `/search=${query}` : ""), "GET");
+  getAllVehicles = (query?: string): Promise<AnswerBySearch<IVehicles>> =>
+    this._fetcher("/vehicles" + (query ? `/?search=${query}` : ""), "GET");
 
   getVehicle = (id: string): Promise<IVehicles> =>
     this._fetcher(`/vehicles/${id}`, "GET");
 
-  getAllSpecies = (query?: string): Promise<Array<ISpecies>> =>
-    this._fetcher("/species" + (query ? `/search=${query}` : ""), "GET");
+  getAllSpecies = (query?: string): Promise<AnswerBySearch<ISpecies>> =>
+    this._fetcher("/species" + (query ? `/?search=${query}` : ""), "GET");
 
   getSpecie = (id: string): Promise<ISpecies> =>
     this._fetcher(`/species/${id}`, "GET");
 
-  getAllPlanets = (query?: string): Promise<Array<IPlanet>> =>
-    this._fetcher("/species" + (query ? `/search=${query}` : ""), "GET");
+  getAllPlanets = (query?: string): Promise<AnswerBySearch<IPlanet>> =>
+    this._fetcher("/species" + (query ? `/?search=${query}` : ""), "GET");
 
   getPlanet = (id: string): Promise<IPlanet> =>
     this._fetcher(`/species/${id}`, "GET");
