@@ -1,27 +1,59 @@
+import { useState, useEffect } from 'react';
 import { Carousel } from "../../components"
+import Preloader from '../../components/Preloader/Preloader';
+import ImageComponent from '../../components/ImageComponent/ImageComponent';
 
-interface Movie {
-  id: number;
-  title: string;
-  imageUrl: string;
-  rating: number;
-}
-
-const movies: Movie[] = [
-  { id: 1, title: 'Avatar', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 7.8 },
-  { id: 2, title: 'Лед', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 6.9 },
-  { id: 3, title: 'Спутник', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 6.3 },
-  { id: 4, title: 'Little Women', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 7.8 },
-  { id: 5, title: 'Another Movie', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 8.2 },
-  { id: 6, title: 'Yet Another Movie', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 5.5 },
-  { id: 7, title: 'Final Test Movie', imageUrl: 'https://i.ytimg.com/vi/MmWRIfRZNz8/maxresdefault.jpg', rating: 9.1 },
-];
 
 export const Main = () => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [carouselData, setCarouselData] = useState<any[]>([]);
+
+  useEffect(() => {
+    setLoading(true);
+    const urls = [
+      'https://swapi.dev/api/films/',
+      'https://swapi.dev/api/people/',
+      'https://swapi.dev/api/planets/',
+      'https://swapi.dev/api/species/',
+      'https://swapi.dev/api/starships/',
+      'https://swapi.dev/api/vehicles/',
+    ];
+
+    Promise.all(urls.map(url => fetch(url).then(response => response.json()))).then(data => {
+
+      const filmsData = data[0];
+      const peopleData = data[1];
+      const planetsData = data[2];
+      const speciesData = data[3];
+      const starshipsData = data[4];
+      const vehiclesData = data[5];
+
+      const films = filmsData.results.slice(0, 3).map((file: any) => ({ ...file, category: 'Film' })) || [];
+      const people = peopleData.results.slice(0, 3).map((person: any) => ({ ...person, category: 'Person' })) || [];
+      const species = speciesData.results.slice(0, 3).map((specie: any) => ({ ...specie, category: 'Species' })) || [];
+      const planets = planetsData.results.slice(0, 3).map((planet: any) => ({ ...planet, category: 'Planet' })) || [];
+      const starships = starshipsData.results.slice(0, 3).map((starship: any) => ({ ...starship, category: 'Starship' })) || [];
+      const vehicles = vehiclesData.results.slice(0, 3).map((vehicle: any) => ({ ...vehicle, category: 'Vehicle' })) || [];
+
+      const allData = [...films, ...people, ...planets, ...species, ...starships, ...vehicles];
+      setCarouselData(allData);
+    })
+      .catch((err: any) => {
+        setError(err.message || 'An error occurred');
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <section>
-      Главная
-      <Carousel movies={movies}/>
+      <ImageComponent />
+      <Preloader loading={loading}>
+        <Carousel carouselData={carouselData} />
+      </Preloader>
     </section>
   )
 }
