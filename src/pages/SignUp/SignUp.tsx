@@ -33,8 +33,12 @@ export const SignUp = () => {
     <section className={style.signUp}>
       <form onSubmit={handleSubmit(sendData)} className={style.form}>
         <label className={style.label}>
-          Как к вам обращаться &nbsp;
-          <Input {...register("userName")} />
+          Username &nbsp;
+          <Input
+            {...register("userName")}
+            className={style.input}
+            style={{ color: "white" }}
+          />
           <Typography
             variant="caption"
             color="red"
@@ -44,8 +48,12 @@ export const SignUp = () => {
           </Typography>
         </label>
         <label className={style.label}>
-          Ввведите вашу почту &nbsp;
-          <Input {...register("email")} />
+          Email &nbsp;
+          <Input
+            {...register("email")}
+            className={style.input}
+            style={{ color: "white" }}
+          />
           <Typography
             variant="caption"
             color="red"
@@ -55,8 +63,12 @@ export const SignUp = () => {
           </Typography>
         </label>{" "}
         <label className={style.label}>
-          Введите пароль &nbsp;
-          <Input {...register("password")} />
+          Password &nbsp;
+          <Input
+            {...register("password")}
+            className={style.input}
+            style={{ color: "white" }}
+          />
           <Typography
             variant="caption"
             color="red"
@@ -67,10 +79,7 @@ export const SignUp = () => {
         </label>{" "}
         <Button type="submit"> Регистрация </Button>
         {error && (
-          <Typography
-            variant="caption"
-            color="red"
-          >
+          <Typography variant="caption" color="red">
             {error.message}
           </Typography>
         )}

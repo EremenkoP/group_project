@@ -1,3 +1,4 @@
+import style from './App.module.scss'
 import { Route, Routes } from "react-router";
 import { Header } from "./Header/Header";
 import { Main } from "./Main/Main";
@@ -10,11 +11,11 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route index element={<Main />} />
-        <Route path={router.signIn} element={<SignIn />} />
-        <Route path={router.signUp} element={<SignUp />} />
-      </Routes>
+        <Routes>
+          <Route index element={<Main />} />
+          <Route path={router.signIn} element={<SignIn />} />
+          <Route path={router.signUp} element={<SignUp />} />
+        </Routes>
       <Footer />
     </>
   );
