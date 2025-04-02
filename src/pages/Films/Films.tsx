@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Api from "../../services/API/API";
-import { IPeople } from "../../services/types";
+import { IFilms } from "../../services/types";
 import { CardList } from "../../components";
 
-export const People = () => {
-  const [data, setData] = useState<Array<IPeople>>([]);
+export const Films = () => {
+  const [data, setData] = useState<Array<IFilms>>([]);
 
   const getData = async (query?: string) => {
-    await Api.getAllPeoples(query).then((res) => {
+    await Api.getAllFilms(query).then((res) => {
       setData((prev) => {
         return prev.concat(res.results);
       });

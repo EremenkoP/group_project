@@ -121,5 +121,15 @@ export interface IPlanet {
   rotation_period: string;
   surface_water: string;
   terrain: string;
-  url: Array<string>;
+  url: string;
 }
+
+
+export interface AnswerBySearch<
+  T extends IPeople | IFilms | IStarships | IVehicles | ISpecies | IPlanet
+> {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Array<T>;
+} 
