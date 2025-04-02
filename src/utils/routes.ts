@@ -8,4 +8,6 @@ export const router = {
   vehicles: "/vehicles",
   species: "/species",
   planets: "/planets",
+  oneElement: "/:group/:id",
+  navOneElement: (group: string, id: string) => `/${group}/${id}`,
 };
