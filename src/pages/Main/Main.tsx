@@ -1,74 +1,52 @@
 import { useState, useEffect } from 'react';
 import { Carousel } from "../../components"
-import { IPeople, IFilms, IStarships, IVehicles, ISpecies, IPlanet } from '../../services/types/API'
 import Preloader from '../../components/Preloader/Preloader';
 import ImageComponent from '../../components/ImageComponent/ImageComponent';
 
-interface ApiResponse<T> {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: T[];
-}
 
 export const Main = () => {
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [carouselData, setCarouselData] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const urls = [
-          'https://swapi.dev/api/films/',
-          'https://swapi.dev/api/people/',
-          'https://swapi.dev/api/planets/',
-          'https://swapi.dev/api/species/',
-          'https://swapi.dev/api/starships/',
-          'https://swapi.dev/api/vehicles/'
-        ];
+    setLoading(true);
 
-        const responses = await Promise.all(urls.map(url => fetch(url)));
+    const urls = [
+      'https://swapi.dev/api/films/',
+      'https://swapi.dev/api/people/',
+      'https://swapi.dev/api/planets/',
+      'https://swapi.dev/api/species/',
+      'https://swapi.dev/api/starships/',
+      'https://swapi.dev/api/vehicles/',
+    ];
 
-        const data = await Promise.all(responses.map(response => response.json()));
+    Promise.all(urls.map(url => fetch(url).then(response => response.json()))).then(data => {
 
-        const [
-          filmsData,
-          peopleData,
-          planetsData,
-          speciesData,
-          starshipsData,
-          vehiclesData
-        ] = data as [
-          ApiResponse<IFilms>,
-          ApiResponse<IPeople>,
-          ApiResponse<IPlanet>,
-          ApiResponse<ISpecies>,
-          ApiResponse<IStarships>,
-          ApiResponse<IVehicles>
-        ];
+      const filmsData = data[0];
+      const peopleData = data[1];
+      const planetsData = data[2];
+      const speciesData = data[3];
+      const starshipsData = data[4];
+      const vehiclesData = data[5];
 
-        const films = filmsData.results.slice(0, 3).map(film => ({ ...film, category: 'Film' }));
-        const people = peopleData.results.slice(0, 3).map(person => ({ ...person, category: 'Person' }));
-        const planets = planetsData.results.slice(0, 3).map(planet => ({ ...planet, category: 'Planet' }));
-        const species = speciesData.results.slice(0, 3).map(specie => ({ ...specie, category: 'Species' }));
-        const starships = starshipsData.results.slice(0, 3).map(starship => ({ ...starship, category: 'Starship' }));
-        const vehicles = vehiclesData.results.slice(0, 3).map(vehicle => ({ ...vehicle, category: 'Vehicle' }));
+      const films = filmsData.results.slice(0, 3).map((file: any) => ({ ...file, category: 'Film' })) || [];
+      const people = peopleData.results.slice(0, 3).map((person: any) => ({ ...person, category: 'Person' })) || [];
+      const species = speciesData.results.slice(0, 3).map((specie: any) => ({ ...specie, category: 'Species' })) || [];
+      const planets = planetsData.results.slice(0, 3).map((planet: any) => ({ ...planet, category: 'Planet' })) || [];
+      const starships = starshipsData.results.slice(0, 3).map((starship: any) => ({ ...starship, category: 'Starship' })) || [];
+      const vehicles = vehiclesData.results.slice(0, 3).map((vehicle: any) => ({ ...vehicle, category: 'Vehicle' })) || [];
 
-        const allData = [...films, ...people, ...planets, ...species, ...starships, ...vehicles];
-
-        setCarouselData(allData);
-
-      } catch (err: any) {
+      const allData = [...films, ...people, ...planets, ...species, ...starships, ...vehicles];
+      setCarouselData(allData);
+    })
+      .catch((err: any) => {
         setError(err.message || 'An error occurred');
         console.error(err);
-      } finally {
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-    fetchData();
+      });
   }, []);
 
   return (
