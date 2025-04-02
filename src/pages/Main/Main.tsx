@@ -11,7 +11,6 @@ export const Main = () => {
 
   useEffect(() => {
     setLoading(true);
-
     const urls = [
       'https://swapi.dev/api/films/',
       'https://swapi.dev/api/people/',
