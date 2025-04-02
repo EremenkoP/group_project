@@ -5,6 +5,7 @@ import { router } from "../utils/routes";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
 import Footer from "./Footer/Footer";
+import { People } from "./People/People";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route index element={<Main />} />
         <Route path={router.signIn} element={<SignIn />} />
         <Route path={router.signUp} element={<SignUp />} />
+        <Route path={'/people'} element={<People />} />
       </Routes>
       <Footer />
     </>
