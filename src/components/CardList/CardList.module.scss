@@ -1,0 +1,32 @@
+@use '../../utils/style/variables.scss' as *;
+@use '../../utils/style/mixin.scss' as *;
+
+.card__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 20px;
+    background-color: $main-background;
+
+    &__item {
+        @include def-border;
+        list-style-type: none;
+        width: calc(100% / 4 - 40px);
+        height: 150px;
+        color: #fff;
+        background-color: $accient-background;
+        text-align: center;
+        cursor: pointer;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(104, 104, 104, 0.2);
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+        }
+
+    }
+}
+
+

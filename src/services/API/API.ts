@@ -75,10 +75,11 @@ class mainApi {
     this._fetcher(`/species/${id}`, "GET");
 
   getAllPlanets = (query?: string): Promise<AnswerBySearch<IPlanet>> =>
-    this._fetcher("/species" + (query ? `/?${query}` : ""), "GET");
+    this._fetcher("/planets" + (query ? `/?${query}` : ""), "GET");
+
 
   getPlanet = (id: string): Promise<IPlanet> =>
-    this._fetcher(`/species/${id}`, "GET");
+    this._fetcher(`/planets/${id}`, "GET");
 }
 
 const adress = "https://swapi.dev/api";
