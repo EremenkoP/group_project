@@ -37,7 +37,7 @@ export interface IFilms {
   created: string;
   director: string;
   edited: string;
-  episode_id: 4;
+  episode_id: number;
   opening_crawl: string;
   planets: Array<string>;
   producer: string;

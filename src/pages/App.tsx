@@ -12,6 +12,7 @@ import { Starships } from './Starships/Starships';
 import { Vehicles } from './Vehicles/Vehicles';
 import { Species } from './Species/Species';
 import { Planets } from './Planets/Planets';
+import { Error } from './Error/Error';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path={router.vehicles} element={<Vehicles />} />
         <Route path={router.species} element={<Species />} />
         <Route path={router.planets} element={<Planets />} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </>
