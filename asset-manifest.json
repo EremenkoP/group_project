@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/group_project/static/css/main.e3739468.css",
-    "main.js": "/group_project/static/js/main.2da92d3f.js",
+    "main.css": "/group_project/static/css/main.a79fa28f.css",
+    "main.js": "/group_project/static/js/main.c52587b1.js",
     "static/js/453.6ac22399.chunk.js": "/group_project/static/js/453.6ac22399.chunk.js",
     "static/media/starwars.jpeg": "/group_project/static/media/starwars.658ae29b1efed04782ac.jpeg",
     "static/media/404.jpg": "/group_project/static/media/404.426f8a5846a09f5ddb9b.jpg",
@@ -11,12 +11,12 @@
     "static/media/slick.ttf": "/group_project/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/group_project/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/group_project/index.html",
-    "main.e3739468.css.map": "/group_project/static/css/main.e3739468.css.map",
-    "main.2da92d3f.js.map": "/group_project/static/js/main.2da92d3f.js.map",
+    "main.a79fa28f.css.map": "/group_project/static/css/main.a79fa28f.css.map",
+    "main.c52587b1.js.map": "/group_project/static/js/main.c52587b1.js.map",
     "453.6ac22399.chunk.js.map": "/group_project/static/js/453.6ac22399.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3739468.css",
-    "static/js/main.2da92d3f.js"
+    "static/css/main.a79fa28f.css",
+    "static/js/main.c52587b1.js"
   ]
 }
