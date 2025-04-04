@@ -26,12 +26,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer__top-side__links">
-          <Link className="footer__top-side__links" to={router.main}>People</Link>
-          <Link className="footer__top-side__links" to={router.main}>Films</Link>
-          <Link className="footer__top-side__links" to={router.main}>Starships</Link>
-          <Link className="footer__top-side__links" to={router.main}>Vehicles</Link>
-          <Link className="footer__top-side__links" to={router.main}>Species</Link>
-          <Link className="footer__top-side__links" to={router.main}>Planets</Link>
+          <Link className="footer__top-side__links" to={router.people}>People</Link>
+          <Link className="footer__top-side__links" to={router.films}>Films</Link>
+          <Link className="footer__top-side__links" to={router.starships}>Starships</Link>
+          <Link className="footer__top-side__links" to={router.vehicles}>Vehicles</Link>
+          <Link className="footer__top-side__links" to={router.species}>Species</Link>
+          <Link className="footer__top-side__links" to={router.planets}>Planets</Link>
         </div>
         <div className="footer__top-side__describe">
             <h3 className="footer__top-side__describe__title">Newletters subscription</h3>
