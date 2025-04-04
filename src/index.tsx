@@ -9,7 +9,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import "dayjs/locale/ru";
 import { ruRU } from "@mui/x-date-pickers/locales";
-import { BrowserRouter } from "react-router";
+import { BrowserRouter, HashRouter } from "react-router";
+
+// HashRouter need for gh-pages
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
