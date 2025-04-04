@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/group_project/static/css/main.e3739468.css",
-    "main.js": "/group_project/static/js/main.2da92d3f.js",
-    "static/js/453.6ac22399.chunk.js": "/group_project/static/js/453.6ac22399.chunk.js",
-    "static/media/starwars.jpeg": "/group_project/static/media/starwars.658ae29b1efed04782ac.jpeg",
-    "static/media/404.jpg": "/group_project/static/media/404.426f8a5846a09f5ddb9b.jpg",
-    "static/media/logo.png": "/group_project/static/media/logo.9eb5057c5b4a3440f4af.png",
-    "static/media/slick.svg": "/group_project/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/group_project/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/group_project/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/group_project/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/group_project/index.html",
-    "main.e3739468.css.map": "/group_project/static/css/main.e3739468.css.map",
-    "main.2da92d3f.js.map": "/group_project/static/js/main.2da92d3f.js.map",
-    "453.6ac22399.chunk.js.map": "/group_project/static/js/453.6ac22399.chunk.js.map"
+    "main.css": "/static/css/main.7a769633.css",
+    "main.js": "/static/js/main.53ccdbb3.js",
+    "static/js/453.6ac22399.chunk.js": "/static/js/453.6ac22399.chunk.js",
+    "static/media/starwars.jpeg": "/static/media/starwars.658ae29b1efed04782ac.jpeg",
+    "static/media/404.jpg": "/static/media/404.426f8a5846a09f5ddb9b.jpg",
+    "static/media/logo.png": "/static/media/logo.9eb5057c5b4a3440f4af.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.7a769633.css.map": "/static/css/main.7a769633.css.map",
+    "main.53ccdbb3.js.map": "/static/js/main.53ccdbb3.js.map",
+    "453.6ac22399.chunk.js.map": "/static/js/453.6ac22399.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3739468.css",
-    "static/js/main.2da92d3f.js"
+    "static/css/main.7a769633.css",
+    "static/js/main.53ccdbb3.js"
   ]
 }
