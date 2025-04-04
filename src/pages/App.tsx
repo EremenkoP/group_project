@@ -28,7 +28,7 @@ function App() {
         <Route path={router.vehicles} element={<Vehicles />} />
         <Route path={router.species} element={<Species />} />
         <Route path={router.planets} element={<Planets />} />
-        <Route path="*" element={<Error />} />
+        <Route path={router.error} element={<Error />} />
       </Routes>
       <Footer />
     </>

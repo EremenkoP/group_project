@@ -10,4 +10,5 @@ export const router = {
   planets: "/planets",
   oneElement: "/:group/:id",
   navOneElement: (group: string, id: string) => `/${group}/${id}`,
+  error: '/*'
 };
