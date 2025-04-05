@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IPeople } from '../../services/types/API'
+import styles from '../../utils/style/resources_header.module.css'
 
 
 const PersonDetails = () => {
@@ -31,7 +32,7 @@ const PersonDetails = () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>{person.name}</h2>
             <p>Birth Year: {person.birth_year}</p>
             <p>Eye Color: {person.eye_color}</p>

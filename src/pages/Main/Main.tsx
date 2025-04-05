@@ -38,14 +38,12 @@ export const Main = () => {
 
       const allData = [...films, ...people, ...planets, ...species, ...starships, ...vehicles];
       setCarouselData(allData);
-    })
-      .catch((err: any) => {
-        setError(err.message || 'An error occurred');
-        console.error(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    }).catch((err: any) => {
+      setError(err.message || 'An error occurred');
+      console.error(err);
+    }).finally(() => {
+      setLoading(false);
+    });
   }, []);
 
   return (
